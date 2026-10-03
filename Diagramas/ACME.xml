@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="ASCII"?>
+<organization:Organization xmlns:organization="http://documentation.bonitasoft.com/organization-xml-schema/1.1">
+  <customUserInfoDefinitions/>
+  <users>
+    <user userName="DonJose">
+      <firstName>Don</firstName>
+      <lastName>Jose</lastName>
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">bpm</password>
+      <customUserInfoValues/>
+    </user>
+    <user userName="ChalanJ1">
+      <firstName>Elias</firstName>
+      <lastName>GM</lastName>
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">bpm</password>
+      <customUserInfoValues/>
+    </user>
+    <user userName="ChalanJ2">
+      <firstName>Daniel</firstName>
+      <lastName>GR</lastName>
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">bpm</password>
+      <customUserInfoValues/>
+    </user>
+    <user userName="Usuario1">
+      <firstName>Victor</firstName>
+      <lastName>GC</lastName>
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">bpm</password>
+      <customUserInfoValues/>
+    </user>
+    <user userName="ChalanV1">
+      <firstName>Armando</firstName>
+      <lastName>ZP</lastName>
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">bpm</password>
+      <customUserInfoValues/>
+    </user>
+  </users>
+  <roles>
+    <role name="Jefe">
+      <displayName>JefeDeCuadrilla</displayName>
+    </role>
+    <role name="Chalan">
+      <displayName>Chalan</displayName>
+    </role>
+  </roles>
+  <groups>
+    <group name="Bloquera">
+      <displayName>Bloquera</displayName>
+    </group>
+    <group name="Cuadrilla1" parentPath="/Bloquera">
+      <displayName>cuadrilla1</displayName>
+    </group>
+    <group name="Cuadrilla2" parentPath="/Bloquera">
+      <displayName>cuadrilla2</displayName>
+    </group>
+  </groups>
+  <memberships>
+    <membership>
+      <userName>ChalanJ1</userName>
+      <roleName>Chalan</roleName>
+      <groupName>Cuadrilla1</groupName>
+      <groupParentPath>/Bloquera</groupParentPath>
+    </membership>
+    <membership>
+      <userName>DonJose</userName>
+      <roleName>Jefe</roleName>
+      <groupName>Cuadrilla1</groupName>
+      <groupParentPath>/Bloquera</groupParentPath>
+    </membership>
+    <membership>
+      <userName>ChalanJ2</userName>
+      <roleName>Chalan</roleName>
+      <groupName>Cuadrilla1</groupName>
+      <groupParentPath>/Bloquera</groupParentPath>
+    </membership>
+    <membership>
+      <userName>Usuario1</userName>
+      <roleName>Jefe</roleName>
+      <groupName>Cuadrilla2</groupName>
+      <groupParentPath>/Bloquera</groupParentPath>
+    </membership>
+    <membership>
+      <userName>ChalanV1</userName>
+      <roleName>Chalan</roleName>
+      <groupName>Cuadrilla2</groupName>
+      <groupParentPath>/Bloquera</groupParentPath>
+    </membership>
+  </memberships>
+</organization:Organization>

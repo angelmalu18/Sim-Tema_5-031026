@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.angelsystems.simulacionbloquera.controller.MainController"
+            style="-fx-background-color: #F0F4F8;">
+
+    <top>
+        <VBox>
+            <VBox alignment="CENTER" spacing="2"
+                  style="-fx-background-color: #1A237E; -fx-padding: 8 0 8 0;">
+                <Label text="INDUSTRIA BLOQUERA DEL SURESTE" textFill="WHITE">
+                    <font><Font name="Arial Bold" size="18"/></font>
+                </Label>
+                <Label text="Simulacion de produccion · Escenarios 1 y 2" textFill="#C5CAE9">
+                    <font><Font name="Arial" size="10"/></font>
+                </Label>
+            </VBox>
+
+            <HBox spacing="6" style="-fx-padding: 6 10 4 10;">
+                <VBox alignment="CENTER" spacing="2" HBox.hgrow="ALWAYS" prefHeight="52"
+                      style="-fx-background-color: white; -fx-border-color: #CFD8DC; -fx-border-width: 1; -fx-padding: 4 6 4 6;">
+                    <Label text="ESTADO" style="-fx-text-fill: #546E7A; -fx-font-size: 8px; -fx-font-weight: bold;"/>
+                    <Label fx:id="lblEstado" text="LISTO" style="-fx-text-fill: #2E7D32; -fx-font-size: 12px; -fx-font-weight: bold;"/>
+                </VBox>
+                <VBox alignment="CENTER" spacing="2" HBox.hgrow="ALWAYS" prefHeight="52"
+                      style="-fx-background-color: white; -fx-border-color: #CFD8DC; -fx-border-width: 1; -fx-padding: 4 6 4 6;">
+                    <Label text="DON JOSE · TIEMPO LABORAL" style="-fx-text-fill: #546E7A; -fx-font-size: 8px; -fx-font-weight: bold;"/>
+                    <Label fx:id="lblRelojDj" text="00:00:00" style="-fx-text-fill: #5D4037; -fx-font-size: 12px; -fx-font-weight: bold;"/>
+                </VBox>
+                <VBox alignment="CENTER" spacing="2" HBox.hgrow="ALWAYS" prefHeight="52"
+                      style="-fx-background-color: white; -fx-border-color: #CFD8DC; -fx-border-width: 1; -fx-padding: 4 6 4 6;">
+                    <Label text="VICTOR · TIEMPO LABORAL" style="-fx-text-fill: #546E7A; -fx-font-size: 8px; -fx-font-weight: bold;"/>
+                    <Label fx:id="lblRelojVt" text="00:00:00" style="-fx-text-fill: #6A1B9A; -fx-font-size: 12px; -fx-font-weight: bold;"/>
+                </VBox>
+                <VBox alignment="CENTER" spacing="2" HBox.hgrow="ALWAYS" prefHeight="52"
+                      style="-fx-background-color: white; -fx-border-color: #CFD8DC; -fx-border-width: 1; -fx-padding: 4 6 4 6;">
+                    <Label text="DIA" style="-fx-text-fill: #546E7A; -fx-font-size: 8px; -fx-font-weight: bold;"/>
+                    <Label fx:id="lblDia" text="1 / 6" style="-fx-text-fill: #1A237E; -fx-font-size: 12px; -fx-font-weight: bold;"/>
+                </VBox>
+                <VBox alignment="CENTER" spacing="2" HBox.hgrow="ALWAYS" prefHeight="52"
+                      style="-fx-background-color: white; -fx-border-color: #CFD8DC; -fx-border-width: 1; -fx-padding: 4 6 4 6;">
+                    <Label text="REVOLVEDORA" style="-fx-text-fill: #546E7A; -fx-font-size: 8px; -fx-font-weight: bold;"/>
+                    <Label fx:id="lblRev" text="LIBRE" style="-fx-text-fill: #2E7D32; -fx-font-size: 12px; -fx-font-weight: bold;"/>
+                </VBox>
+                <VBox alignment="CENTER" spacing="2" HBox.hgrow="ALWAYS" prefHeight="52"
+                      style="-fx-background-color: white; -fx-border-color: #CFD8DC; -fx-border-width: 1; -fx-padding: 4 6 4 6;">
+                    <Label text="ALMACEN" style="-fx-text-fill: #546E7A; -fx-font-size: 8px; -fx-font-weight: bold;"/>
+                    <Label fx:id="lblAlmacen" text="0 bloques" style="-fx-text-fill: #2E7D32; -fx-font-size: 12px; -fx-font-weight: bold;"/>
+                </VBox>
+            </HBox>
+
+            <HBox spacing="6" alignment="CENTER_LEFT" style="-fx-padding: 2 10 6 10;">
+                <Button text="Iniciar" onAction="#onIniciar"/>
+                <Button text="Pausar" onAction="#onPausar"/>
+                <Button text="Reiniciar" onAction="#onReiniciar"/>
+                <Button text="Proceso 2" onAction="#onProceso2"/>
+                <Button text="Resultados" onAction="#onResultados"/>
+                <Button text="Guardar CSV" onAction="#onGuardarCsv"/>
+                <Button text="Tiempos" onAction="#onTiempos"/>
+                <Separator orientation="VERTICAL"/>
+                <Label text="Escenario:" style="-fx-font-weight: bold; -fx-font-size: 11px;"/>
+                <ComboBox fx:id="comboEscenario" prefWidth="280" onAction="#onCambioEscenario"/>
+                <Separator orientation="VERTICAL"/>
+                <Label text="Velocidad:" style="-fx-font-weight: bold; -fx-font-size: 11px;"/>
+                <ComboBox fx:id="comboVelocidad" prefWidth="110" onAction="#onCambioVelocidad"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <StackPane style="-fx-padding: 5 10 5 10;">
+            <Canvas fx:id="canvas" width="1420" height="680"/>
+        </StackPane>
+    </center>
+
+    <bottom>
+        <Label maxWidth="Infinity"
+               text="Escenario 1: 1 revolvedora (cuello de botella). Escenario 2: 2 revolvedoras (sin espera en mezcla)."
+               style="-fx-background-color: #ECEFF1; -fx-text-fill: #1A237E; -fx-font-size: 11px; -fx-padding: 4 10 6 10;"/>
+    </bottom>
+</BorderPane>
